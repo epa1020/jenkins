@@ -15,10 +15,16 @@ pipeline {
         }
         stage('starting') {
             environment { 
-                DEBUG_TEXT = "${env.BRANCH_NAME}.${env.BUILD_ID}"
+                DEBUG_TEXT = "v${env.BRANCH_NAME}.${env.BUILD_ID}"
             }
             steps {
                 sh 'echo $DEBUG_TEXT'
+                sshagent (credentials: ['gitkeynew']) {
+                sh 'echo "----tag branch----"'
+
+                sh 'git tag -a $DEBUG_TEXT -m "release version 0.1 beta"'
+                sh 'git push origin $DEBUG_TEXT'
+                }
             }
         }
     }
