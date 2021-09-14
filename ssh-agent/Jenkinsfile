@@ -15,10 +15,10 @@ pipeline {
         }
         stage('starting') {
             environment { 
-                DEBUG_TEXT = "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                DEBUG_TEXT = "${env.BRANCH_NAME}.${env.BUILD_ID}"
             }
             steps {
-                sh 'printenv'
+                sh 'echo $DEBUG_TEXT'
             }
         }
     }
