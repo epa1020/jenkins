@@ -12,9 +12,9 @@ node {
       sh 'git log --oneline>log.txt'
       sh 'cat log.txt'
       sh 'echo "----tag branch----"'
-      sh 'echo "Build number is ${currentBuild.number}"'
-      sh 'git tag -a v0.1 -m "release version 0.1 beta"'
-      sh 'git push origin v0.1'
+      sh 'echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"'
+      //sh 'git tag -a v0.1 -m "release version 0.1 beta"'
+      //sh 'git push origin v0.1'
     }
   }
 }
