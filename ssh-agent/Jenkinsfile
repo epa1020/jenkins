@@ -12,8 +12,9 @@ node {
       sh 'git log --oneline>log.txt'
       sh 'cat log.txt'
       sh 'echo "----current branch----"'
-      sh 'git branch --show-current'
-      //sh 'echo "${env.BRANCH_NAME}.${env.BUILD_NUMBER}"'
+      sh 'bname=$(git branch --show-current)'
+      sh 'echo "the branch name is: $bname"'
+      sh 'echo "${env.BUILD_NUMBER}"'
     }
   }
 }
