@@ -12,7 +12,8 @@ node {
       sh 'git log --oneline>log.txt'
       sh 'cat log.txt'
       sh 'echo "----current branch----"'
-      sh 'git rev-parse --abbrev-ref HEAD'
+      sh 'git branch –show-current'
+      sh 'echo "${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
     }
   }
 }
