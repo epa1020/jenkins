@@ -1,14 +1,9 @@
 pipeline {
     agent any
     stages {
-       stage ("checkout") {
-      sh 'ls'    
-      checkout scm
-      sh 'ls'
-    }      
         stage('build') {
             steps {
-                sh 'echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"'
+                sh 'ls'
             }
         }
     }
