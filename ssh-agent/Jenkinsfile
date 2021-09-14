@@ -1,6 +1,6 @@
 node {
   stage('Tag Branch') {  
-    sshagent (credentials: ['github-key']) {
+    sshagent (credentials: ['gitkey']) {
       // get the last commit id from a repository you own
       shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
       sh 'echo "-------"'
