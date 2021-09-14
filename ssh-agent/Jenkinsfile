@@ -4,7 +4,7 @@ node {
     checkout scm
     sh 'ls'
     }
-  stage('Tag Branch') {  
+  stage('Tag Branch') {
     sshagent (credentials: ['gitkeynew']) {
       // get the last commit id from a repository you own
       // shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
@@ -12,9 +12,12 @@ node {
       sh 'git log --oneline>log.txt'
       sh 'cat log.txt'
       sh 'echo "----tag branch----"'
-      sh 'echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"'
+      //sh 'echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"'
       //sh 'git tag -a v0.1 -m "release version 0.1 beta"'
       //sh 'git push origin v0.1'
+    }
+    steps{
+      sh 'echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"'
     }
   }
 }
