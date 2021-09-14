@@ -4,7 +4,10 @@ node {
       // get the last commit id from a repository you own
       // shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
       sh 'echo "-------"'
-      sh 'git log -n 1 --pretty=format:''%h'''
+      sh 'ls'
+      sh 'echo "env.BRANCH_NAME"'
+      sh 'echo "git branch"'
+      
       sh 'echo "-------"'
     }
   }
