@@ -3,12 +3,7 @@ node {
     sshagent (credentials: ['gitkeynew']) {
       // get the last commit id from a repository you own
       // shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
-      sh 'echo "-------"'
-      sh 'ls'
-      sh 'echo "${env.BRANCH_NAME}"'
-      sh 'git branch'
-      
-      sh 'echo "-------"'
+      sh 'pwd'
     }
   }
 }
