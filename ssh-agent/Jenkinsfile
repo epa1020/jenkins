@@ -13,7 +13,7 @@ node {
       sh 'cat log.txt'
       sh 'echo "----current branch----"'
       sh 'git branch –show-current'
-      sh 'echo "${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
+      sh 'echo "${env.BRANCH_NAME}.${env.BUILD_NUMBER}"'
     }
   }
 }
