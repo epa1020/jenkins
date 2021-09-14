@@ -1,4 +1,9 @@
 node {
+  stage ("checkout") {
+    sh 'ls'    
+    checkout scm
+    sh 'ls'
+    }
   stage('Tag Branch') {  
     sshagent (credentials: ['gitkeynew']) {
       // get the last commit id from a repository you own
