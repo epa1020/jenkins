@@ -11,10 +11,10 @@ node {
       sh 'pwd'
       sh 'git log --oneline>log.txt'
       sh 'cat log.txt'
-      sh 'echo "----current branch----"'
-      sh 'bname=$(git branch --show-current)'
-      sh 'echo "the branch name is: $bname"'
-      sh 'echo "${env.BUILD_NUMBER}"'
+      sh 'echo "----tag branch----"'
+      sh 'echo "Build number is ${currentBuild.number}"'
+      sh 'git tag -a v0.1 -m "release version 0.1 beta"'
+      sh 'git push origin v0.1'
     }
   }
 }
