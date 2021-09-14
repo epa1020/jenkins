@@ -5,8 +5,8 @@ node {
       // shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
       sh 'echo "-------"'
       sh 'ls'
-      sh 'echo "env.BRANCH_NAME"'
-      sh 'echo "git branch"'
+      sh 'echo "${env.BRANCH_NAME}"'
+      sh 'git branch'
       
       sh 'echo "-------"'
     }
