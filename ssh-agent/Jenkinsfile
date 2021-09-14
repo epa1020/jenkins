@@ -18,13 +18,13 @@ pipeline {
                 DEBUG_TEXT = "v${env.BRANCH_NAME}.${env.BUILD_ID}"
             }
             steps {
-                sh 'echo $DEBUG_TEXT'
-                sshagent (credentials: ['gitkeynew']) {
+                withCredentials([gitUsernamePassword(credentialsId: 'gitcreds', gitToolName: 'git-tool')]) {
                 sh 'echo "----tag branch----"'
-
                 sh 'git tag -a $DEBUG_TEXT -m "release version 0.1 beta"'
                 sh 'git push origin $DEBUG_TEXT'
                 }
+                sh 'echo $DEBUG_TEXT'
+                
             }
         }
     }
