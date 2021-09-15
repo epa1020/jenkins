@@ -19,6 +19,7 @@ pipeline {
             }
             steps {
                 sshagent (credentials: ['gitkeynew']) {
+                    sh 'git remote -v'
                 sh 'echo "----tag branch----"'
                 sh 'git tag -a $DEBUG_TEXT -m "release version 0.1 beta"'
                 sh 'git push origin $DEBUG_TEXT'
